@@ -21,4 +21,4 @@ This is the simple application, that retrieves and displays data from remote ser
 
 https://user-images.githubusercontent.com/56390513/160234194-c6c58232-7a23-485f-884c-e1960f112367.MP4
 
-<sup><sub>Note: The app may not load data for all users (it may even not retrieve users' ids list) due to internal server errors</sub></sup>
+<sup>Note: The app may not load data for all users (it may even not retrieve users' ids list) due to internal server errors</sup>
