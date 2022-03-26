@@ -18,6 +18,10 @@
 		8B56DE4B27EB804000F2EF7F /* UserDetailsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B56DE4A27EB804000F2EF7F /* UserDetailsResponse.swift */; };
 		8B56DE5127EC524B00F2EF7F /* UsersService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B56DE5027EC524B00F2EF7F /* UsersService.swift */; };
 		8B56DE7527EC964900F2EF7F /* TestTaskTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B56DE7427EC964900F2EF7F /* TestTaskTests.swift */; };
+		8B56DE8B27EEFFA000F2EF7F /* Header.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B56DE8A27EEFFA000F2EF7F /* Header.swift */; };
+		8B56DE8D27EEFFA800F2EF7F /* Payload.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B56DE8C27EEFFA800F2EF7F /* Payload.swift */; };
+		8B56DE8F27EF068700F2EF7F /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B56DE8E27EF068700F2EF7F /* Data.swift */; };
+		8B56DE9127EF06BC00F2EF7F /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B56DE9027EF06BC00F2EF7F /* String.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +48,10 @@
 		8B56DE5027EC524B00F2EF7F /* UsersService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersService.swift; sourceTree = "<group>"; };
 		8B56DE7227EC964900F2EF7F /* TestTaskTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TestTaskTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8B56DE7427EC964900F2EF7F /* TestTaskTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestTaskTests.swift; sourceTree = "<group>"; };
+		8B56DE8A27EEFFA000F2EF7F /* Header.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Header.swift; sourceTree = "<group>"; };
+		8B56DE8C27EEFFA800F2EF7F /* Payload.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Payload.swift; sourceTree = "<group>"; };
+		8B56DE8E27EF068700F2EF7F /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
+		8B56DE9027EF06BC00F2EF7F /* String.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,6 +96,7 @@
 				8B56DE3827EB1B0F00F2EF7F /* Main */,
 				8B56DE3927EB1B1800F2EF7F /* Flows */,
 				8B56DE4727EB732D00F2EF7F /* Model */,
+				8B56DE8727EEFEF800F2EF7F /* Extension */,
 				8B56DE2E27EB196300F2EF7F /* Assets.xcassets */,
 				8B56DE3027EB196300F2EF7F /* Preview Content */,
 			);
@@ -151,6 +160,8 @@
 				8B56DE4227EB701C00F2EF7F /* API */,
 				8B56DE4827EB740C00F2EF7F /* UsersListResponse.swift */,
 				8B56DE4A27EB804000F2EF7F /* UserDetailsResponse.swift */,
+				8B56DE8A27EEFFA000F2EF7F /* Header.swift */,
+				8B56DE8C27EEFFA800F2EF7F /* Payload.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -161,6 +172,15 @@
 				8B56DE7427EC964900F2EF7F /* TestTaskTests.swift */,
 			);
 			path = TestTaskTests;
+			sourceTree = "<group>";
+		};
+		8B56DE8727EEFEF800F2EF7F /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				8B56DE9027EF06BC00F2EF7F /* String.swift */,
+				8B56DE8E27EF068700F2EF7F /* Data.swift */,
+			);
+			path = Extension;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -263,11 +283,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8B56DE8B27EEFFA000F2EF7F /* Header.swift in Sources */,
 				8B56DE5127EC524B00F2EF7F /* UsersService.swift in Sources */,
 				8B56DE2D27EB196000F2EF7F /* HomeView.swift in Sources */,
 				8B56DE4127EB700A00F2EF7F /* UserDetailsViewModel.swift in Sources */,
 				8B56DE3D27EB1CD100F2EF7F /* UserDetailsView.swift in Sources */,
 				8B56DE2B27EB196000F2EF7F /* TestTaskApp.swift in Sources */,
+				8B56DE9127EF06BC00F2EF7F /* String.swift in Sources */,
+				8B56DE8F27EF068700F2EF7F /* Data.swift in Sources */,
+				8B56DE8D27EEFFA800F2EF7F /* Payload.swift in Sources */,
 				8B56DE3F27EB6FFD00F2EF7F /* HomeViewModel.swift in Sources */,
 				8B56DE4927EB740C00F2EF7F /* UsersListResponse.swift in Sources */,
 				8B56DE4B27EB804000F2EF7F /* UserDetailsResponse.swift in Sources */,

@@ -8,21 +8,14 @@
 
 import Foundation
 import Combine
+import CryptoKit
 
 final class UsersService {
     
-    private let token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9." +
-                            "eyJ1aWQiOiJmOTIwMjJlNi0zOTlmLTQzNDctOWE2YS01MzFhOGFhNDA5YTciLCJpZGVudGl0eSI6InRlc3QifQ." +
-                                "sfSGoeSwzPCimh3I_IR6exolidJ95f-2DQLZYY61eWg"
-
-    private func createRequest(for url: URL) -> URLRequest {
-        var request = URLRequest(url: url)
-        request.httpMethod = "GET"
-        
-        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-        request.setValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
-        
-        return request
+    private var token: String = ""
+    
+    init() {
+        getToken()
     }
 
     func fetchUsers() -> AnyPublisher<UsersListResponse, Error> {
@@ -51,5 +44,38 @@ final class UsersService {
             .decode(type: UserDetailsResponse.self, decoder: JSONDecoder())
             .receive(on: DispatchQueue.main)
             .eraseToAnyPublisher()
+    }
+}
+
+private extension UsersService {
+    func createRequest(for url: URL) -> URLRequest {
+        var request = URLRequest(url: url)
+        request.httpMethod = "GET"
+        
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.setValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
+        
+        return request
+    }
+    
+    func getToken() {
+        let header = Header(alg: "HS256", typ: "JWT")
+        let payload = Payload(uid: "f92022e6-399f-4347-9a6a-531a8aa409a7", identity: "test")
+        
+        let headerJSONEncoded = try? JSONEncoder().encode(header).urlSafeBase64EncodedString()
+        let payloadJSONEncoded = try? JSONEncoder().encode(payload).urlSafeBase64EncodedString()
+        let secret = "$SECRET$".toBase64()
+        
+        if let headerJSONEncoded = headerJSONEncoded, let payloadJSONEncoded = payloadJSONEncoded {
+            let key = SymmetricKey(data: secret.data(using: .utf8)!)
+            
+            let signature = HMAC<SHA256>.authenticationCode(for: Data("\(headerJSONEncoded).\(payloadJSONEncoded)".utf8), using: key)
+            let signatureBase64String = Data(signature).urlSafeBase64EncodedString()
+            
+            token = [headerJSONEncoded, payloadJSONEncoded, signatureBase64String].joined(separator: ".")
+            print(token)
+        } else {
+            fatalError("JSON encoding error")
+        }
     }
 }
